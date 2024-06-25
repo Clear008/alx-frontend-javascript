@@ -1,9 +1,9 @@
-export default function getResponseFromAPI() {
+export default function getResponseFromAPI(success) {
     return new Promise((resolve, reject) => {
-        if (true) { // Placeholder condition
-            resolve('success'); // Placeholder success message
+        if (success) {
+            resolve({ status: 200, body: 'Success' });
         } else {
-            reject('error'); // Placeholder error message
+            reject(Error('The fake API is not working currently'));
         }
     });
 }

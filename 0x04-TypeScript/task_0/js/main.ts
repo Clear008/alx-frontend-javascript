@@ -6,31 +6,37 @@ interface Student {
 }
 
 const student1: Student = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 25,
-  location: "New York"
+  firstName: 'Itashi',
+  lastName: 'Renno',
+  age: 19,
+  location: 'Tokyo',
 };
 
 const student2: Student = {
-  firstName: "Jane",
-  lastName: "Doe",
-  age: 23,
-  location: "London"
+  firstName: 'Jane',
+  lastName: 'Roe',
+  age: 25,
+  location: 'Paris',
 };
 
 const studentsList: Student[] = [student1, student2];
 
-function renderTable() {
-  const table = document.createElement("table");
-  studentsList.forEach(student => {
-    const row = table.insertRow();
-    const firstNameCell = row.insertCell();
-    firstNameCell.innerHTML = student.firstName;
-    const locationCell = row.insertCell();
-    locationCell.innerHTML = student.location;
-  });
-  document.body.appendChild(table);
-}
 
-renderTable();
+const table = document.createElement('table');
+const tbody = document.createElement('tbody');
+
+studentsList.forEach((student) => {
+  const row = document.createElement('tr');
+  const cell1 = document.createElement('td');
+  const cell2 = document.createElement('td');
+  
+  cell1.textContent = student.firstName;
+  cell2.textContent = student.location;
+  
+  row.appendChild(cell1);
+  row.appendChild(cell2);
+  tbody.appendChild(row);
+});
+
+table.appendChild(tbody);
+document.body.appendChild(table);
